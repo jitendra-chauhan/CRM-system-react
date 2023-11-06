@@ -4,9 +4,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import { IconButton, Typography, Icon } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { IconButton, Typography } from "@mui/material";
 import "../css/sideNavBar.scss";
 function SideNavBar() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -14,7 +16,12 @@ function SideNavBar() {
   };
 
   const listItems = [
-    { text: "Home", onClick: () => {} },
+    {
+      text: "User",
+      onClick: () => {
+        navigate(`/user/${sessionStorage.getItem("id")}`);
+      },
+    },
     { text: "About", onClick: () => {} },
     { text: "Contact", onClick: () => {} },
   ];

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import logo from "./logo.svg";
 import "./App.css";
 import Login from "./pages/login";
+import User from "./pages/user";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             //   <route.component name={route.name} {...props} {...route.props} />
             // )}
           />
+          <Route key="2" path="/user/:id" element={<User />} />
         </Routes>
       </BrowserRouter>
     </div>

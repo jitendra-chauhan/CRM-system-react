@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../logo.svg";
 
 import LoginContent from "../components/login.content";
 import { loginQuery } from "../querys/login.query";
 import SideNavBar from "../components/sideNavBar";
+import { UserContent } from "../components/user.content";
 // import { URL } from "../common/constants";
 
 function Login() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -27,16 +28,16 @@ function Login() {
     console.log("data :: ", value);
     if (value.data?.login) {
       sessionStorage.setItem("id", value.data?.login?.id);
-      //   navigate(`/Chat/${sessionStorage.getItem("id")}`);
-    }
-    if (value?.errors[0]?.message && !done) {
+      navigate(`/user/${sessionStorage.getItem("id")}`);
+    } else if (value?.errors[0]?.message && !done) {
       alert(value.errors[0].message);
     }
   };
 
   return (
     <>
-      <SideNavBar />
+      {/* <SideNavBar />
+      <UserContent /> */}
       <LoginContent
         logo={logo}
         setUserName={setUserName}
