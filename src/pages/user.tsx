@@ -48,7 +48,7 @@ function User() {
   return (
     <>
       <SideNavBar />
-      <UserContent data={userData} />
+      <UserContent data={userData} setUserData={setUserData} />
       {/* <LoginContent
         logo={logo}
         setUserName={setUserName}

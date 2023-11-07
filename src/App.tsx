@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Login from "./pages/login";
 import User from "./pages/user";
+import DashBoard from "./pages/dashBoard";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             // )}
           />
           <Route key="2" path="/user/:id" element={<User />} />
+          <Route key="2" path="/deshBoard/:id" element={<DashBoard />} />
         </Routes>
       </BrowserRouter>
     </div>

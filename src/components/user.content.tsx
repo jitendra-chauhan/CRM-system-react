@@ -2,6 +2,7 @@
 import "../css/user.scss";
 import React, { useState } from "react";
 import Popup from "./popUp";
+import { addUserQuery } from "../querys/user.query";
 
 export function UserContent(prop: any) {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,19 @@ export function UserContent(prop: any) {
     setIsOpen(!isOpen);
   };
 
-  const formData = (e: any) => {
+  const formData = async (e: any) => {
     const userName = e.target.userName.value;
     const firstName = e.target.firstName.value;
     const lastName = e.target.lastName.value;
     e.preventDefault();
-    console.log(" data :: ", e.target.userName.value);
+    const { value } = await addUserQuery({
+      userName,
+      firstName,
+      lastName,
+    });
+    togglePopup();
+
+    prop.setUserData(value?.data?.addUser);
   };
 
   return (

@@ -17,12 +17,17 @@ function SideNavBar() {
 
   const listItems = [
     {
+      text: "DeshBoard",
+      onClick: () => {
+        navigate(`/deshBoard/${sessionStorage.getItem("id")}`);
+      },
+    },
+    {
       text: "User",
       onClick: () => {
         navigate(`/user/${sessionStorage.getItem("id")}`);
       },
     },
-    { text: "About", onClick: () => {} },
     { text: "Contact", onClick: () => {} },
   ];
   const st = {

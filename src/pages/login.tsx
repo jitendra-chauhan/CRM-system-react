@@ -4,8 +4,8 @@ import logo from "../logo.svg";
 
 import LoginContent from "../components/login.content";
 import { loginQuery } from "../querys/login.query";
-import SideNavBar from "../components/sideNavBar";
-import { UserContent } from "../components/user.content";
+// import SideNavBar from "../components/sideNavBar";
+// import { UserContent } from "../components/user.content";
 // import { URL } from "../common/constants";
 
 function Login() {
@@ -28,7 +28,7 @@ function Login() {
     console.log("data :: ", value);
     if (value.data?.login) {
       sessionStorage.setItem("id", value.data?.login?.id);
-      navigate(`/user/${sessionStorage.getItem("id")}`);
+      navigate(`/deshBoard/${sessionStorage.getItem("id")}`);
     } else if (value?.errors[0]?.message && !done) {
       alert(value.errors[0].message);
     }
